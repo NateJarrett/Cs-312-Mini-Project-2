@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= drink.strDrink %> - Cocktail Finder</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">🍹 Cocktail Finder</a>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/random">Random Cocktail</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="result-container">
+
+        <a href="/" class="back-link">
+            ← Search for another cocktail
+        </a>
+
+        <section class="cocktail-card">
+
+            <div class="cocktail-image">
+                <img
+                    src="<%= drink.strDrinkThumb %>"
+                    alt="<%= drink.strDrink %>"
+                >
+            </div>
+
+            <div class="cocktail-info">
+
+                <h1><%= drink.strDrink %></h1>
+
+                <div class="tags">
+
+                    <% if (drink.strCategory) { %>
+                        <span><%= drink.strCategory %></span>
+                    <% } %>
+
+                    <% if (drink.strAlcoholic) { %>
+                        <span><%= drink.strAlcoholic %></span>
+                    <% } %>
+
+                    <% if (drink.strGlass) { %>
+                        <span><%= drink.strGlass %></span>
+                    <% } %>
+
+                </div>
+
+                <h2>🥃 Ingredients</h2>
+
+                <ul class="ingredients">
+
+                    <% ingredients.forEach(item => { %>
+
+                        <li>
+                            <strong>
+                                <%= item.measure %>
+                            </strong>
+
+                            <%= item.ingredient %>
+                        </li>
+
+                    <% }); %>
+
+                </ul>
+
+                <h2>📝 Instructions</h2>
+
+                <p class="instructions">
+                    <%= drink.strInstructions %>
+                </p>
+
+                <a href="/" class="button">
+                    Search Again
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            CS-312 Mini Project 2 |
+            Powered by TheCocktailDB API
+        </p>
+    </footer>
+
+</body>
+</html>

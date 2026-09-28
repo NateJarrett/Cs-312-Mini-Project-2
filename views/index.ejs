@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cocktail Finder</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">🍹 Cocktail Finder</a>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <div class="emoji">🍸</div>
+
+            <h1>Find Your Perfect Cocktail</h1>
+
+            <p>
+                Search for a cocktail and discover its ingredients,
+                measurements, and preparation instructions.
+            </p>
+
+            <% if (error) { %>
+                <div class="error">
+                    <%= error %>
+                </div>
+            <% } %>
+
+            <form action="/search" method="POST" class="search-form">
+
+                <label for="cocktail">
+                    Enter a cocktail name
+                </label>
+
+                <input
+                    type="text"
+                    id="cocktail"
+                    name="cocktail"
+                    placeholder="e.g. Margarita"
+                    required
+                >
+
+                <button type="submit">
+                    Search Cocktails
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            CS-312 Mini Project 2 |
+            Powered by TheCocktailDB API
+        </p>
+    </footer>
+
+</body>
+</html>
